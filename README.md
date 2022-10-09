@@ -1,6 +1,5 @@
 ## Minimum MVVM
-- Koin (Kotlin Dependency Injection)
-- Coroutines
+- Hilt Dependency Injection
 - View Model
 - Lifecycle
 
