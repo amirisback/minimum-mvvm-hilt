@@ -2,15 +2,21 @@ package com.frogobox.minimummvvm
 
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.frogobox.minimummvvm.databinding.ActivityMainBinding
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), MainItemListener {
 
-    private val mainViewModel: MainViewModel by viewModel()
-    private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    private val mainViewModel: MainViewModel by viewModels()
+
+    private val binding: ActivityMainBinding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
+
     private val mainAdapter = MainAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,9 +1,11 @@
 package com.frogobox.minimummvvm
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
 /*
  * Created by faisalamir on 08/02/22
@@ -18,10 +20,12 @@ import androidx.lifecycle.MutableLiveData
  *
  */
 
-class MainViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class MainViewModel @Inject constructor() : ViewModel() {
 
     private val data = mutableListOf<MainData>()
-    var _mainData = MutableLiveData<MutableList<MainData>>()
+
+    private var _mainData = MutableLiveData<MutableList<MainData>>()
     var mainData: LiveData<MutableList<MainData>> = _mainData
 
     fun setupData() {
